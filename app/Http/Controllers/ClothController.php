@@ -47,6 +47,15 @@ class ClothController extends Controller
         ]);
     }
 
+    public function getAllClothes()
+    {
+        $clothes = Clothes::all();
+        return response()->json([
+           'success' => true,
+           'list' => $clothes
+        ]);
+    }
+
     public function getMenClothes()
     {
         $menClothes = Clothes::where('gender', 'men')->get();

@@ -24,6 +24,8 @@ Route::get("/user/{email}", "UserController@userDetail");
 
 Route::post("/upload-clothes", "ClothController@createClothes");
 
+Route::get("/all-clothes", "ClothController@getAllClothes");
+
 Route::get("/men-clothes", "ClothController@getMenClothes");
 Route::get("/men-new-arrivals", "ClothController@getMenNewArrivals");
 
