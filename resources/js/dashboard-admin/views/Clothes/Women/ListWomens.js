@@ -81,7 +81,7 @@ export default function ListWomens() {
                             <>
                                 <Col xs={2}>
                                     <Form.Group className="pb-3">
-                                        <Form.Label>
+                                        <Form.Label className="label-font">
                                             Filter by Sub Categories
                                         </Form.Label>
                                         <Form.Control as="select"

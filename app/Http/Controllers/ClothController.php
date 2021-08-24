@@ -47,12 +47,39 @@ class ClothController extends Controller
         ]);
     }
 
+    public function updateClothes(Request $request, $id)
+    {
+        $validator = $request->validate([
+            'category' => 'required',
+            'sub_category' => 'required',
+            'gender' => 'required',
+            'product_name' => 'required',
+            'price' => 'required',
+//            'product_image' => 'required'
+        ]);
+
+        $clothes = Clothes::find($id);
+
+        $clothes->product_name = $validator['product_name'];
+        $clothes->gender = $validator['gender'];
+        $clothes->category = $validator['category'];
+        $clothes->sub_category = $validator['sub_category'];
+        $clothes->price = $validator['price'];
+        $clothes->save();
+
+        return response()->json([
+            'success' => true,
+            'data' => $clothes,
+            'message' => 'Update Success'
+        ]);
+    }
+
     public function getAllClothes()
     {
         $clothes = Clothes::all();
         return response()->json([
-           'success' => true,
-           'list' => $clothes
+            'success' => true,
+            'list' => $clothes
         ]);
     }
 
@@ -109,4 +136,23 @@ class ClothController extends Controller
             'new_arrivals' => $kidsNewArrivals
         ]);
     }
+
+    public function deleteClothes($id)
+    {
+        $cloth = Clothes::find($id);
+        if (!empty($cloth)) {
+            $cloth->delete();
+            $message = [
+                'success' => true,
+                'message' => 'Delete Product Success'
+            ];
+        } else {
+            $message = [
+                'success' => false,
+                'message' => 'Delete Product Failed'
+            ];
+        }
+        return response()->json($message);
+    }
+
 }

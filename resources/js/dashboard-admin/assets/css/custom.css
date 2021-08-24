@@ -201,3 +201,7 @@ p.sub_category {
         opacity: 1;
     }
 }
+
+.form-label{
+    font-size: 13px !important;
+}

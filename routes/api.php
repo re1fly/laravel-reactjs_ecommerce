@@ -22,7 +22,9 @@ Route::post("/signup", "UserController@signUp");
 Route::post("/signin", "UserController@signIn");
 Route::get("/user/{email}", "UserController@userDetail");
 
-Route::post("/upload-clothes", "ClothController@createClothes");
+Route::post("/upload-product", "ClothController@createClothes");
+Route::post("/update-product/{id}", "ClothController@updateClothes");
+Route::delete("/delete-product/{id}", "ClothController@deleteClothes");
 
 Route::get("/all-clothes", "ClothController@getAllClothes");
 
