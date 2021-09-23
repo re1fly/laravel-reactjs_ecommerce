@@ -60,13 +60,14 @@ function FixedPlugin({
         </Dropdown.Toggle>
         <Dropdown.Menu>
           <li className="adjustments-line d-flex align-items-center justify-content-between">
-            <p>Background Image</p>
-            <Form.Check
-              type="switch"
-              id="custom-switch-1-image"
-              checked={hasImage}
-              onChange={setHasImage}
-            />
+              <i className="fas fa-shopping-cart mr-3">Cart</i>
+            {/*<p>Background Image</p>*/}
+            {/*<Form.Check*/}
+            {/*  type="switch"*/}
+            {/*  id="custom-switch-1-image"*/}
+            {/*  checked={hasImage}*/}
+            {/*  onChange={setHasImage}*/}
+            {/*/>*/}
           </li>
           <li className="adjustments-line mt-3">
             <p>Filters</p>

@@ -26,7 +26,8 @@ Route::post("/upload-product", "ClothController@createClothes");
 Route::post("/update-product/{id}", "ClothController@updateClothes");
 Route::delete("/delete-product/{id}", "ClothController@deleteClothes");
 
-Route::get("/all-clothes", "ClothController@getAllClothes");
+Route::get("/all-product", "ClothController@getAllClothes");
+Route::get("/get-product/{id}", "ClothController@getCloth");
 
 Route::get("/men-clothes", "ClothController@getMenClothes");
 Route::get("/men-new-arrivals", "ClothController@getMenNewArrivals");
@@ -36,6 +37,22 @@ Route::get("/women-new-arrivals", "ClothController@getWomenNewArrivals");
 
 Route::get("/kids-clothes", "ClothController@getKidsClothes");
 Route::get("/kids-new-arrivals", "ClothController@getKidsNewArrivals");
+
+Route::get("/tshirts", "ClothController@getTshirts");
+Route::get("/jerseys", "ClothController@getJerseys");
+Route::get("/jackets", "ClothController@getJackets");
+Route::get("/sweaters", "ClothController@getSweaters");
+Route::get("/hoodies", "ClothController@getHoodies");
+Route::get("/shorts", "ClothController@getShorts");
+Route::get("/pants", "ClothController@getPants");
+Route::get("/leggings", "ClothController@getLeggings");
+Route::get("/socks", "ClothController@getSocks");
+Route::get("/caps", "ClothController@getCaps");
+Route::get("/backpacks", "ClothController@getBackpacks");
+Route::get("/sleeves", "ClothController@getSleeves");
+Route::get("/balls", "ClothController@getBalls");
+
+Route::post("/create-transaction", "TransactionController@createtransactions");
 
 
 

@@ -34,3 +34,9 @@ Route::get('/{url?}', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*send email*/
+Route::get('mail/send-email', 'EmailController@sendEmail');
+
+/*DEBUG*/
+Route::get('debug/testing', 'TransactionController@testing');

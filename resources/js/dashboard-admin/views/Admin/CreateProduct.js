@@ -144,7 +144,7 @@ export default function CreateProduct() {
                     <MenuItem value="sweater">Sweater</MenuItem>
                     <MenuItem value="hoodie">Hoodie</MenuItem>
 
-                    <MenuItem value="short">Short</MenuItem>
+                    <MenuItem value="shorts">Shorts</MenuItem>
                     <MenuItem value="pants">Pants</MenuItem>
                     <MenuItem value="legging">Legging</MenuItem>
                     <MenuItem value="socks">Socks</MenuItem>

@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 export default function TableProduct() {
     const classes = useStyles();
     const [data, setData] = useState([])
-    const [openModalCreate, setModalCreate] = useState(false);
+    const [modalCreate, setModalCreate] = useState(false);
 
     useEffect(() => {
         axios.get(GET_ALL_CLOTHES).then(response => {
@@ -41,14 +41,15 @@ export default function TableProduct() {
             field: 'product_image',
             render: rowData =>
                 <img src={rowData.product_image} style={{width: 80}}/>,
-            editComponent: (props,index) => (
-                <input
-                    accept="image/"
-                    multiple
-                    type="file"
-                    onChange={e => props.onChange(e.target.files[index])}
-                />
-            ),
+            editComponent: (props, index, rowData) =>
+                // <input
+                //     accept="image/"
+                //     multiple
+                //     type="file"
+                //     onChange={e => props.onChange(e.target.files[index])}
+                // />
+                <img src={props.product_image} style={{width: 80}}/>
+            ,
         },
         {
             title: 'Product Name',
@@ -104,8 +105,6 @@ export default function TableProduct() {
     const handleCloseCreate = () => {
         setModalCreate(false)
     }
-
-
     return (
         <>
             <MaterialTable
@@ -126,7 +125,7 @@ export default function TableProduct() {
                         tooltip: 'Add Product',
                         isFreeAction: true,
                         onClick: (event) => handleOpenCreate()
-                    }
+                    },
                 ]}
                 detailPanel={[
                     {
@@ -203,7 +202,7 @@ export default function TableProduct() {
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 className={classes.modal}
-                open={openModalCreate}
+                open={modalCreate}
                 onClose={handleCloseCreate}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
@@ -211,7 +210,7 @@ export default function TableProduct() {
                     timeout: 500,
                 }}
             >
-                <Fade in={openModalCreate}>
+                <Fade in={modalCreate}>
                     <div className={classes.paper}>
                         <h2 id="transition-modal-title">Add Product</h2>
                         <div id="transition-modal-description">
@@ -220,6 +219,7 @@ export default function TableProduct() {
                     </div>
                 </Fade>
             </Modal>
+
         </>
 
     )
